@@ -15,12 +15,13 @@ typedef char string[100];
 
 
 typedef struct{
-    int x,y;
+    int y,x;
 }CursorPosition;
 
 typedef struct{
     string nama;
     int noTelp;
+    string tglPesan;
 }DataPemesan;
 
 typedef struct{
@@ -35,4 +36,4 @@ void generateMap(string map[ROW][COLUMN], DataPemesan bangku[WIDTH_SEAT][LENGTH_
 void showMap(string map[ROW][COLUMN]);
 
 void generateCursPosition(CursorPosition c, string map[ROW][COLUMN]);
-void CursMovement(CursMovement *c);
+void CursMovement(CursorPosition *C);
