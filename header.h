@@ -25,8 +25,8 @@ typedef struct{
 }DataPemesan;
 
 typedef struct{
-    string viewMap[ROW][COLUMN];
     DataPemesan bangku[WIDTH_SEAT][LENGTH_SEAT];
+    string viewMap[ROW][COLUMN];
 }Map;
 
 void init();
