@@ -1,11 +1,9 @@
 #include "header.h"
 int main(int argc, char *argv[]) {
 	DataPemesan bangku[WIDTH_SEAT][LENGTH_SEAT];
-
-	ClassMap obj_map[2];
-
-	init(obj_map[0].bangku);
-	init(obj_map[1].bangku);
+	string map[WIDTH_SEAT][LENGTH_SEAT];
+	// init(obj_map[0].bangku);
+	// init(obj_map[1].bangku);
 
 	CursorPosition c;
 	c.y=2;
