@@ -130,26 +130,56 @@ void clearMap(){
     	gotoxy(i, 4); printf("                                                   ");
 	}
 }
+void clearShow(string nama, string tgl){
+    int i;
+    gotoxy(3,46); printf("                                     ");
+    gotoxy(4,46); printf("                "); for(i=0;i<=strlen(nama);i++) printf(" ");
+    gotoxy(5,46); printf("                "); for(i=0;i<=strlen(tgl);i++) printf(" ");
+}
+void clearInputData(string nama, string tgl){
+    int i;
+    gotoxy(3,46); printf("                                     ");
+    gotoxy(4,46); printf("                       "); for(i=0;i<=strlen(nama);i++) printf(" ");
+    gotoxy(5,46); printf("                             "); for(i=0;i<=strlen(tgl);i++) printf(" ");
+    gotoxy(7,46); printf("                                     ");
 
-void clearInput(){
-	gotoxy(3,46); printf("                                     ");
-	gotoxy(4,46); printf("                                                               ");
-	gotoxy(5,46); printf("                                                               ");
-	gotoxy(7,46); printf("                                     ");
+}
+void clearFindSeat(string teaterInput, string seatInput){
+    int i;
+    gotoxy(1,4);printf("                                                            ");//clear judul film
+    gotoxy(3,46); printf("                     "); //header
+    gotoxy(4,46); printf("                   "); //pilihan 1
+    gotoxy(5,46); printf("                   "); //pilihan 2
+    gotoxy(6,46); for(i=0;i<=34+(strlen(teaterInput));i++) printf(" "); //inputan teater
+    gotoxy(7,46); for(i=0;i<=28+(strlen(seatInput));i++) printf(" "); //inputan seat
 }
 
 //============================
 void play(string jenis){
-    int i;
+    int i,j;
+    gotoxy(1,4); printf("                                                              ");
+    gotoxy(1,4); printf("====[NOW PLAYING!!!]====");
     gotoxy(4,8);
     if(strcmpi(jenis,"standard")==0){
         for(i=0;i<28;i++){
-            printf("%c", 177);
+            printf("%c", 176);
         }
+        gotoxy(4,8);
+        for(i=0;i<28;i++){
+            Sleep(30);
+            printf("%c",177);
+        }
+        
     }else{
         for(i=0;i<32;i++){
-            printf("%c", 177);
+            printf("%c", 176);   
         }
+        gotoxy(4,8);
+        for(i=0;i<32;i++){
+            Sleep(15);
+            printf("%c",177);
+        }
+
     }
-    Sleep(1000);
+    Sleep(10);
 }

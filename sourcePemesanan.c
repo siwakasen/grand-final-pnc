@@ -123,14 +123,14 @@ void inputDataPemesan(DataPemesan p[ROW][COLUMN], int y, int x){
     strcpy(p[y][x].nama,nama);
     strcpy(p[y][x].tglPesan,tanggal);
     gotoxy(7,46); printf("[+] Pemesanan Berhasil !"); getch();
-    clearInput();
+    clearInputData(p[y][x].nama,p[y][x].tglPesan);
 }
 void showDataPemesan(DataPemesan p[ROW][COLUMN], int y, int x){
    gotoxy(3,46); printf("   --=== Data Pemesan ===--");
    gotoxy(4,46); printf("Nama Pemesan  : %s",p[y][x].nama);
    gotoxy(5,46); printf("Tanggal Pesan : %s",p[y][x].tglPesan);
    getch();
-   clearInput();
+   clearShow(p[y][x].nama,p[y][x].tglPesan);
 }
 bool isValidTanggal(string tanggal, int hari,int bln,int thn){
     if(thn<1) return false;

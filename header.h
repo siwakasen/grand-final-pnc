@@ -61,7 +61,9 @@ void showTeater(Teater t,string ukuran);
 void showMap(DetailMap dMap, string ukuran, int y, int x, int space1, int space2);
 void showPointerMap(string jenis, int row);
 void clearMap();
-void clearInput();
+void clearFindSeat(string teaterInput, string seatInput);
+void clearInputData(string nama, string tgl);
+void clearShow(string nama, string tgl);
 void play(string jenis);
 
 void generateCursPosition(Index c, string map[ROW][COLUMN], bool hasData);

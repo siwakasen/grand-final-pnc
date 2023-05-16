@@ -1,6 +1,6 @@
 #include "header.h"
 
-void CursMovement(Index *c, char move){
+void CursMovement(Index *c, char move){ //generate curs movement
     if(move=='w'){
         c->y=c->y-1;
     }else if(move=='s'){
@@ -11,7 +11,7 @@ void CursMovement(Index *c, char move){
         c->x=c->x+1;
     }
 }
-bool isValidMovement(char move, Index c, string jenisMap, string ukuran){
+bool isValidMovement(char move, Index c, string jenisMap, string ukuran){ //ck validitas movement cursor
     if(move=='w'){
         if((c.y-1)==-1) return false;       
     }else if(move=='s'){
