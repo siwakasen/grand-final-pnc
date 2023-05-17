@@ -171,7 +171,11 @@ int main(int argc, char *argv[]) {
 			generateMap(&t[current].dMap);
 			hasData=isHasData(t[current].dMap.p,c); 
 			generateCursPosition(c,t[current].dMap.map,hasData);
+			clearMap();
 			showTeater(t[current],ukuran);
+			printf("\n\n\n    [Enter] Pesan/Lihat Detail");
+			printf("\n    [P] Play Film");
+			printf("\n    [F] Find Seat");
         	if(strcmp(t[current].dMap.map[c.y][c.x],"**")==0){
 				//untuk input data
 				show_cur();
