@@ -78,6 +78,10 @@ bool isRandomPemesanSmall(int y, int x, Index r[]);
 void inputDataPemesan(DataPemesan p[ROW][COLUMN], int y, int x);
 void showDataPemesan(DataPemesan p[ROW][COLUMN], int y, int x);
 bool isValidTanggal(string tanggal, int hari,int bln,int thn);
+bool cekDigit(string s);
+bool cekSpasi(string s);
+bool cekHuruf(string s);
+bool cekAwalanSpasi(string s);
 
 void border(int y, int x, int row, int column, string jenis);
 void hide_cur();

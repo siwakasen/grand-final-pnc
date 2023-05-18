@@ -133,6 +133,27 @@ int main(int argc, char *argv[]) {
 						c.x=temp.x;
 						gotoxy(8,46); printf("[~] Berhasil pindah ke seat [%s]",t[current].dMap.p[temp.y][temp.x].id); getch();
 						gotoxy(8,46); printf("                                ");
+						
+						
+						clearFindSeat(inputTeater,input);
+							hide_cur();
+						generateMap(&t[current].dMap);
+						hasData=isHasData(t[current].dMap.p,c); 
+						generateCursPosition(c,t[current].dMap.map,hasData);
+						clearMap();
+						showTeater(t[current],ukuran);
+						printf("\n\n\n    [Enter] Pesan/Lihat Detail");
+						printf("\n    [P] Play Film");
+						printf("\n    [F] Find Seat");
+			        	if(strcmp(t[current].dMap.map[c.y][c.x],"**")==0){
+							//untuk input data
+							show_cur();
+							inputDataPemesan(t[current].dMap.p,c.y,c.x);
+							hide_cur();
+						}else{
+							//untuk lihat data
+							showDataPemesan(t[current].dMap.p,c.y,c.x); 
+						}
 
 					}
 				}else if(strcmpi(inputTeater,"1")==0 && current==1){ //premiere to standard
@@ -148,6 +169,26 @@ int main(int argc, char *argv[]) {
 						gotoxy(8,46); printf("[~] Berhasil pindah ke seat [%s]",t[current].dMap.p[temp.y][temp.x].id); getch();
 						gotoxy(8,46); printf("                                ");
 						
+						
+						clearFindSeat(inputTeater,input);
+							hide_cur();
+						generateMap(&t[current].dMap);
+						hasData=isHasData(t[current].dMap.p,c); 
+						generateCursPosition(c,t[current].dMap.map,hasData);
+						clearMap();
+						showTeater(t[current],ukuran);
+						printf("\n\n\n    [Enter] Pesan/Lihat Detail");
+						printf("\n    [P] Play Film");
+						printf("\n    [F] Find Seat");
+			        	if(strcmp(t[current].dMap.map[c.y][c.x],"**")==0){
+							//untuk input data
+							show_cur();
+							inputDataPemesan(t[current].dMap.p,c.y,c.x);
+							hide_cur();
+						}else{
+							//untuk lihat data
+							showDataPemesan(t[current].dMap.p,c.y,c.x); 
+						}
 
 					}
 				}else if(current==tempCurrent){
@@ -161,6 +202,27 @@ int main(int argc, char *argv[]) {
 						c.x=temp.x;
 						gotoxy(8,46); printf("[~] Berhasil pindah ke seat [%s]",t[current].dMap.p[temp.y][temp.x].id); getch();
 						gotoxy(8,46); printf("                                ");
+						
+						
+							clearFindSeat(inputTeater,input);
+							hide_cur();
+						generateMap(&t[current].dMap);
+						hasData=isHasData(t[current].dMap.p,c); 
+						generateCursPosition(c,t[current].dMap.map,hasData);
+						clearMap();
+						showTeater(t[current],ukuran);
+						printf("\n\n\n    [Enter] Pesan/Lihat Detail");
+						printf("\n    [P] Play Film");
+						printf("\n    [F] Find Seat");
+			        	if(strcmp(t[current].dMap.map[c.y][c.x],"**")==0){
+							//untuk input data
+							show_cur();
+							inputDataPemesan(t[current].dMap.p,c.y,c.x);
+							hide_cur();
+						}else{
+							//untuk lihat data
+							showDataPemesan(t[current].dMap.p,c.y,c.x); 
+						}
 					}
 				}else{
 					gotoxy(7,46); printf("[!] Teater tidak ditemukan"); getch();
@@ -168,23 +230,6 @@ int main(int argc, char *argv[]) {
 				}
 				clearFindSeat(inputTeater,input);
 				hide_cur();
-			generateMap(&t[current].dMap);
-			hasData=isHasData(t[current].dMap.p,c); 
-			generateCursPosition(c,t[current].dMap.map,hasData);
-			clearMap();
-			showTeater(t[current],ukuran);
-			printf("\n\n\n    [Enter] Pesan/Lihat Detail");
-			printf("\n    [P] Play Film");
-			printf("\n    [F] Find Seat");
-        	if(strcmp(t[current].dMap.map[c.y][c.x],"**")==0){
-				//untuk input data
-				show_cur();
-				inputDataPemesan(t[current].dMap.p,c.y,c.x);
-				hide_cur();
-			}else{
-				//untuk lihat data
-				showDataPemesan(t[current].dMap.p,c.y,c.x); 
-			}
 		}
 	}while(move!=27);
 	

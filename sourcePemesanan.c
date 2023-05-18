@@ -103,7 +103,30 @@ void inputDataPemesan(DataPemesan p[ROW][COLUMN], int y, int x){
             gotoxy(5,46); printf("[!] Nama pemesan harus diisi"); getch();
             gotoxy(5,46); printf("                            ");
         }
-    }while(strlen(nama)==0);
+        else if(cekDigit(nama)){
+        	gotoxy(5,46); printf("[!] Nama pemesan tidak boleh ada angka"); getch();
+            gotoxy(5,46); printf("                                      ");
+            gotoxy(4,70); for(i=0;i<=strlen(nama);i++) printf(" ");
+		}
+		else if(cekSpasi(nama)){
+			gotoxy(5,46); printf("[!] Nama pemesan tidak boleh spasi saja"); getch();
+            gotoxy(5,46); printf("                                       ");
+            gotoxy(4,70); for(i=0;i<=strlen(nama);i++) printf(" ");
+		}
+		else if(cekAwalanSpasi(nama)){
+			gotoxy(5,46); printf("[!] Nama pemesan tidak boleh diawali spasi"); getch();
+            gotoxy(5,46); printf("                                          ");
+            gotoxy(4,70); for(i=0;i<=strlen(nama);i++) printf(" ");
+		}
+		else if(cekHuruf(nama)){
+			break;
+		}
+		else{
+			gotoxy(5,46); printf("[!] Terdapat sesuatu diluar ketentuan nama"); getch();
+            gotoxy(5,46); printf("                                           ");
+            gotoxy(4,70); for(i=0;i<=strlen(nama);i++) printf(" ");
+		}
+    }while(true);
     do{
         gotoxy(5,46); printf("Masukkan tanggal pemesanan : "); fflush(stdin);gets(tanggal);
         sscanf(tanggal,"%d-%d-%d", &hari,&bln,&thn);
@@ -182,4 +205,48 @@ Index findSeat(DataPemesan p[ROW][COLUMN], string input, string ukuran){
     }
 
     return idx;
+}
+
+bool cekDigit(string s){ // jika terdapat satu angka langsung return true
+	int i;
+	int len = strlen(s);
+	
+	for(i = 0 ; i < len ; i++){
+		if(isdigit(s[i])) // pengganti (s[i] >= '0' && s[i] <= '9');
+			return true;
+	}
+	
+	return false;
+}
+
+bool cekSpasi(string s){ //mengecek keseluruhan string terlebih dahulu apakah semua spasi bukan
+	int i;
+	int len = strlen(s);
+	int count = 0;
+	
+	for(i = 0 ; i < len ; i++){
+		if(isspace(s[i])) // pengganti s[i] == ' ';
+			count++;
+	}
+	
+	return count == len;
+}
+
+bool cekAwalanSpasi(string s){
+	if(isspace(s[0])) return true;
+	else return false;
+}
+
+bool cekHuruf(string s){ // mengecek keseluruhan strin apakah ada yang selain huruf kecil dan besar serta spasi (karena nama mungkin ada spasi)
+// ini bisa memungkinkan user untuk input  "           nama" atau "nama             " tapi itu tidak apa"
+	int i;
+	int len = strlen(s);
+	int countOther = 0;
+	
+	for(i = 0 ; i < len ; i++){
+		if(!isalpha(s[i]) && !isspace(s[i])) // pengganti bisa pakai (!(s[i] >= 'a' && s[i] <= 'z') && !(s[i] >= 'A' && s[i] <= 'Z')) && s[i] != ' ';
+			countOther++;
+	}
+	
+	return countOther == 0;
 }
