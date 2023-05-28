@@ -29,7 +29,9 @@ int main(int argc, char *argv[]) {
 		printf("\n    [F] Find Seat");
 		move = getch();
 		move = tolower(move);
-
+		
+		if(move == -32) move = getch();
+		
 		if(isValidMovement(move,c,t[current].jenisTeater,ukuran)) CursMovement(&c, move);
 		
 		if(move != 'w' && move != 'a' && move != 's' && move != 'd' && move != 13 &&
